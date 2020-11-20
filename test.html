@@ -1,23 +1,26 @@
-<!doctype html>
+
+
+<!DOCTYPE html>
 <html>
 <head>
-  <title>API 테스트</title>
-  <meta charset="utf-8">
-  <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <meta charset="utf-8">
+    <title>API 테스트</title>
+    
 </head>
 <body>
-  <h1><a>API TEST PAGE</a></h1>
+<!-- 지도를 표시할 div 입니다 -->
+<div id="map" style="width:100%;height:350px;"></div>
 
-	<div id="map" style="width:500px;height:400px;"></div>
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=363c3d345395e855a6b7ac10bdb4ef17"></script>
-	<script>
-		var container = document.getElementById('map');
-		var options = {
-			center: new kakao.maps.LatLng(33.450701, 126.570667),
-			level: 3
-		};
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=363c3d345395e855a6b7ac10bdb4ef17"></script>
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = { 
+        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };
 
-		var map = new kakao.maps.Map(container, options);
-	</script>
+// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+var map = new kakao.maps.Map(mapContainer, mapOption); 
+</script>
 </body>
 </html>
