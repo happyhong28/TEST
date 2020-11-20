@@ -8,47 +8,51 @@
 <body>
   <h1><a>API TEST PAGE</a></h1>
 
-  <a id="create-kakao-link-btn" href="javascript:;">
+ <a id="kakao-link-btn" href="javascript:sendLink()">
   <img
     src="kakaologo.jpg"
   />
 </a>
 <script type="text/javascript">
-  Kakao.Link.createDefaultButton({
-    container: '#create-kakao-link-btn',
-    objectType: 'feed',
-    content: {
-      title: '딸기 치즈 케익',
-      description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
-      imageUrl:
-        'http://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
-      link: {
-        mobileWebUrl: 'https://developers.kakao.com',
-        webUrl: 'https://developers.kakao.com',
-      },
-    },
-    social: {
-      likeCount: 286,
-      commentCount: 45,
-      sharedCount: 845,
-    },
-    buttons: [
-      {
-        title: '웹으로 보기',
+  // input your appkey
+  Kakao.init('363c3d345395e855a6b7ac10bdb4ef17')
+  function sendLink() {
+    Kakao.Link.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: '딸기 치즈 케익',
+        description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
+        imageUrl:
+          'http://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
         link: {
           mobileWebUrl: 'https://developers.kakao.com',
           webUrl: 'https://developers.kakao.com',
         },
       },
-      {
-        title: '앱으로 보기',
-        link: {
-          mobileWebUrl: 'https://developers.kakao.com',
-          webUrl: 'https://developers.kakao.com',
-        },
+      social: {
+        likeCount: 286,
+        commentCount: 45,
+        sharedCount: 845,
       },
-    ],
-  })
+      buttons: [
+        {
+          title: '웹으로 보기',
+          link: {
+            mobileWebUrl: 'https://developers.kakao.com',
+            webUrl: 'https://developers.kakao.com',
+          },
+        },
+        {
+          title: '앱으로 보기',
+          link: {
+            mobileWebUrl: 'https://developers.kakao.com',
+            webUrl: 'https://developers.kakao.com',
+          },
+        },
+      ],
+    })
+  }
 </script>
+
 </body>
 </html>
