@@ -24,6 +24,16 @@
 </div>
     
     
+ //여기부터는 마커 관련
+ // 이미지 지도에서 마커가 표시될 위치입니다 
+var markerPosition  = new kakao.maps.LatLng(37.56349657528905, 127.04008421296716); 
+
+// 이미지 지도에 표시할 마커입니다
+// 이미지 지도에 표시할 마커는 Object 형태입니다
+var marker = {
+    position: markerPosition
+};
+    
 <!-- 지도를 표시할 div 입니다 -->
 <div id="map" style="width:500px;height:350px;"></div>
 
@@ -33,6 +43,7 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
     mapOption = {
         center: new kakao.maps.LatLng(37.56349657528905, 127.04008421296716), // 지도의 중심좌표
         level: 3 // 지도의 확대 레벨
+         marker: marker // 이미지 지도에 표시할 마커
     };
     
 
@@ -114,6 +125,8 @@ function displayCenterInfo(result, status) {
         }
     }    
 }
+    
+
     
     
 </script>
