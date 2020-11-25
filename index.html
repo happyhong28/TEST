@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>지도 좀 생성하자아아아아악</title>
+    <title>우리집 위치는?</title>
     
     <style>
     .map_wrap {position:relative;width:100%;height:350px;}
@@ -29,6 +29,17 @@
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=363c3d345395e855a6b7ac10bdb4ef17&libraries=services"></script>
 <script>
+    
+    
+//마커에 대한 부분
+var markers = [
+   
+    {
+        position: new kakao.maps.LatLng(37.56349657528905, 127.04008421296716), 
+        text: '우리집' // text 옵션을 설정하면 마커 위에 텍스트를 함께 표시할 수 있습니다     
+    }
+];
+
   
     
     
@@ -36,6 +47,7 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
     mapOption = {
         center: new kakao.maps.LatLng(37.56349657528905, 127.04008421296716), // 지도의 중심좌표
         level: 3 // 지도의 확대 레벨
+        marker: markers // 이미지 지도에 표시할 마커 
     };
     
 
