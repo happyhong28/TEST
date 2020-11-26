@@ -8,10 +8,7 @@
 
 <body>
 
-  response.end("<p>응답</p>");
-  response.end("<p>response.status</p>");
-  response.end("<p>response.headers</p>");
-  response.end("<p>response.data</p>");
+
 
 
   <script type="text/javascript" src="https://code.clayful.io/clayful-js@2.4.1/clayful-js.min.js"></script>
@@ -45,6 +42,11 @@ Product.list(options, function(err, response) {
     console.log(response.status);
     console.log(response.headers);
     console.log(response.data);
+
+    response.end("<p>응답</p>");
+    response.end("<p>response.status</p>");
+    response.end("<p>response.headers</p>");
+    response.end("<p>response.data</p>");
 
 
 
