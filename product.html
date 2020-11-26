@@ -23,6 +23,7 @@ var Product = Clayful.Product;
 
 Product.list(function(err, response) {
 
+<!--
     if (err) {
         console.log(err.isClayful);
         console.log(err.model);
@@ -35,6 +36,17 @@ Product.list(function(err, response) {
 
     console.log(response.status);
     console.log(response.headers);
+    -->
+
+    if (err) {
+		// Error case
+		console.log(err.code);
+	}
+
+	var headers = result.headers;
+	var data = result.data;
+
+	console.log(data);
 
 
 });
