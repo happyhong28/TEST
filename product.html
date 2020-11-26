@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>물품리스트를 가져오자</title>
-      <h1>API TEST</h1>
+    <h1>API TEST</h1>
 </head>
 
 <body>
@@ -21,13 +21,7 @@
 
 var Product = Clayful.Product;
 
-var options = {
-    query: {
-        page: 1
-    }
-};
-
-Product.list(options, function(err, response) {
+Product.list(function(err, response) {
 
     if (err) {
         console.log(err.isClayful);
@@ -41,22 +35,10 @@ Product.list(options, function(err, response) {
 
     console.log(response.status);
     console.log(response.headers);
-    console.log(response.data);
-
-    response.end("<p>응답</p>");
-    response.end("<p>response.status</p>");
-    response.end("<p>response.headers</p>");
-    response.end("<p>response.data</p>");
-
-
 
 
 });
-
-
-
-
-  </script>
+</script>
 
 </body>
 </html>
