@@ -42,10 +42,11 @@ Product.list(options, function(err, response) {
     console.log(response.headers);
     console.log(response.data);
 
-    <p>응답</p>
-    <p>response.status</p>
-    <p>response.headers</p>
-    <p>response.data</p>
+    response.end("<p>응답</p>");
+    response.end("<p>response.status</p>");
+    response.end("<p>response.headers</p>");
+    response.end("<p>response.data</p>");
+
 
 });
 
