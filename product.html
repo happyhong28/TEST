@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>물품리스트를 가져오자</title>
+      <h1>API TEST</h1>
+</head>
+
+<body>
+
+  <!-- via CDN (HTML) -->
+<script src="https://code.clayful.io/clayful-js@2.4.1/clayful-js.min.js"></script>
+<!-- API request plugin for jQuery -->
+<script src="https://code.clayful.io/clayful-js@2.4.1/request-jquery.min.js"></script>
+<!-- API request plugin for axios -->
+<script src="https://code.clayful.io/clayful-js@2.4.1/request-axios.min.js"></script>
+
+<div>
+  Clayful.config({
+    client: '<eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjAxZWM0ODFiZGQ2OGYyNjFiZDJlYzhhNmYyMzAzOTk5ZmUxMDEwNTMwMzNkMjY0MWQ4ODE4NWJlMWFmOGI0ZWMiLCJyb2xlIjoiY2xpZW50IiwiaWF0IjoxNjA1Njc1NjA0LCJzdG9yZSI6Ik1DVUxMNDdHUUQ3UC40QzhDS1RNVzdVNzYiLCJzdWIiOiJTUktKQjdSWEVSSkgifQ.uOKXc84hu24C--fuhHfZa2pLBhaIZD7W3d9Rah9AYug>'
+});
+
+// when using jQuery
+Clayful.install('request', jQueryRequestMiddleware(jQuery));
+// or when using axios
+Clayful.install('request', axiosRequestMiddleware(axios));
+
+var Product = Clayful.Product;
+
+var options = {
+    query: {
+        page: 1
+    }
+};
+
+Product.list(options, function(err, response) {
+
+    if (err) {
+        console.log(err.isClayful);
+        console.log(err.model);
+        console.log(err.method);
+        console.log(err.status);
+        console.log(err.headers);
+        console.log(err.code);
+        console.log(err.message);
+    }
+
+    console.log(response.status);
+    console.log(response.headers);
+    console.log(response.data);
+
+});
+
+
+
+</div>
+
+
+</body>
+</html>
