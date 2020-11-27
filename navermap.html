@@ -4,19 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-    <title>간단한 지도 표시하기</title>
+    <title>NAVER MAP</title>
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=pfstqi90qq"></script>
 </head>
 <body>
 <div id="map" style="width:100%;height:400px;"></div>
 
 <script>
-var mapOptions = {
-    center: new naver.maps.LatLng(37.3595704, 127.105399),
-    zoom: 10
-};
 
-var map = new naver.maps.Map('map', mapOptions);
+
+  var HOME_PATH = window.HOME_PATH || '.';
+
+  var bccard = new naver.maps.LatLng(37.567272784921, 126.99758230336252),
+      map = new naver.maps.Map('map', {
+          center: bccard.destinationPoint(0, 500),
+          zoom: 15
+      }),
+      marker = new naver.maps.Marker({
+          map: map,
+          position: bccard
+      });
+
+  var contentString = [
+          '<div class="iw_inner">',
+          '   <h3>우리집</h3>',
+          '   <p>서울시 중구 을지로 170 비씨카드 | 지하철 2호선 을지로4가 10번 출구 앞<br />',
+          '       <img src="'+ HOME_PATH +'/img/example/hi-seoul.jpg" width="55" height="55" alt="BC카드" class="thumb" /><br />',
+          '       건전한 신용카드생활<br />',
+          '       <a href="http://www.seoul.go.kr" target="_blank">www.seoul.go.kr/</a>',
+          '   </p>',
+          '</div>'
+      ].join('');
+
+  var infowindow = new naver.maps.InfoWindow({
+      content: contentString
+  });
+
+  naver.maps.Event.addListener(marker, "click", function(e) {
+      if (infowindow.getMap()) {
+          infowindow.close();
+      } else {
+          infowindow.open(map, marker);
+      }
+  });
+
+  infowindow.open(map, marker);
 </script>
 </body>
 </html>
